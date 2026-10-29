@@ -1,25 +1,34 @@
 ﻿
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>فخرالدين حمادي | Fakhreddine Hammadi</title>
 
+  <meta name="description" content="الموقع الشخصي لفخرالدين حمادي: الكتابة والموسيقى والإبداع وكتاب مدرسة العشق الأبدي.">
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #06152e, #12345a, #06152e);
-      color: white;
+      color: #ffffff;
       text-align: center;
+      min-height: 100vh;
     }
 
     header {
-      padding: 45px 15px 25px;
+      padding: 45px 15px 30px;
     }
 
     .profile {
@@ -28,13 +37,30 @@
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #f2cc70;
-      box-shadow: 0 0 20px rgba(242,204,112,.3);
+      box-shadow: 0 0 25px rgba(242, 204, 112, 0.35);
     }
 
-    h1, h2 { color: #f2cc70; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 25px; }
-    p { line-height: 1.9; }
+    h1, h2 {
+      color: #f2cc70;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 25px;
+    }
+
+    h3 {
+      color: #ffffff;
+      font-size: 22px;
+    }
+
+    p {
+      line-height: 1.9;
+    }
 
     main {
       width: 92%;
@@ -47,7 +73,8 @@
       padding: 25px 18px;
       border: 1px solid #b89548;
       border-radius: 16px;
-      background: rgba(255,255,255,.06);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
     }
 
     .links {
@@ -66,13 +93,61 @@
       padding: 12px 18px;
       border-radius: 8px;
       margin: 5px;
+      transition: background 0.2s, transform 0.2s;
     }
 
-    .button:hover { background: white; }
+    .button:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .language {
+      border: 1px solid #f2cc70;
+      color: #f2cc70;
+      background: transparent;
+      border-radius: 8px;
+      padding: 9px 14px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .language:hover,
+    .language:focus {
+      background: #f2cc70;
+      color: #06152e;
+    }
 
     footer {
-      padding: 25px;
-      color: #ddd;
+      padding: 25px 15px;
+      color: #dddddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 29px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .profile {
+        width: 150px;
+        height: 150px;
+      }
+
+      section {
+        padding: 20px 12px;
+      }
     }
   </style>
 </head>
@@ -80,42 +155,72 @@
 <body>
 
 <header>
-  <img class="profile" src="./fakhreddine.jpg" alt="الصورة الشخصية لفخرالدين حمادي">"
+  <img
+    class="profile"
+    src="./assets/fakhreddine.jpg"
+    alt="الصورة الشخصية لفخرالدين حمادي"
   >
+
   <h1>فخرالدين حمادي</h1>
   <p>Fakhreddine Hammadi</p>
   <p>✦ العشق إلهام، والوفاء رسالة ✦</p>
+
+  <div class="languages" aria-label="اختيار اللغة">
+    <button class="language" onclick="setLanguage('ar')">العربية</button>
+    <button class="language" onclick="setLanguage('es')">Español</button>
+    <button class="language" onclick="setLanguage('en')">English</button>
+    <button class="language" onclick="setLanguage('fr')">Français</button>
+  </div>
 </header>
 
 <main>
 
   <section>
-    <h2>مرحباً بكم في موقعي</h2>
-    <p>فضاء شخصي للأفكار والإبداع والموسيقى والكتابة.</p>
-    <p>Bienvenidos a mi sitio personal.</p>
-    <p>Welcome to my personal website.</p>
+    <h2 id="welcome-title">مرحباً بكم في موقعي</h2>
+    <p id="welcome-text">فضاء شخصي للأفكار والإبداع والموسيقى والكتابة.</p>
+    <p id="motto">العشق إلهام، والوفاء رسالة.</p>
   </section>
 
   <section>
-    <h2>حساباتي على مواقع التواصل</h2>
+    <h2 id="social-title">حساباتي على مواقع التواصل</h2>
+
     <div class="links">
-      <a class="button" href="https://www.youtube.com/@fakhreddinelamia" target="_blank" rel="noopener">YouTube</a>
-      <a class="button" href="https://www.tiktok.com/@fakhreddine.hamma8" target="_blank" rel="noopener">TikTok</a>
-      <a class="button" href="https://www.instagram.com/hammadifakhreddine87/" target="_blank" rel="noopener">Instagram</a>
-      <a class="button" href="https://www.facebook.com/fakhreddinehammadi87/" target="_blank" rel="noopener">Facebook</a>
-      <a class="button" href="https://fakhreddinehammadilamiaoujdavigo2026.blogspot.com/" target="_blank" rel="noopener">Blogger</a>
+      <a class="button"
+         href="https://www.youtube.com/@fakhreddinelamia"
+         target="_blank" rel="noopener noreferrer">YouTube</a>
+
+      <a class="button"
+         href="https://www.tiktok.com/@fakhreddine.hamma8"
+         target="_blank" rel="noopener noreferrer">TikTok</a>
+
+      <a class="button"
+         href="https://www.instagram.com/hammadifakhreddine87/"
+         target="_blank" rel="noopener noreferrer">Instagram</a>
+
+      <a class="button"
+         href="https://www.facebook.com/fakhreddinehammadi87/"
+         target="_blank" rel="noopener noreferrer">Facebook</a>
+
+      <a class="button"
+         href="https://fakhreddinehammadilamiaoujdavigo2026.blogspot.com/"
+         target="_blank" rel="noopener noreferrer">Blogger</a>
     </div>
   </section>
 
   <section>
-    <h2>كتابي الإلكتروني</h2>
+    <h2 id="book-section-title">كتابي الإلكتروني</h2>
     <h3>مدرسة العشق الأبدي</h3>
-    <p>فلسفة العشق والغرام والهيام</p>
-    <p>العشق إلهام، والوفاء رسالة.</p>
+    <p id="book-subtitle">فلسفة العشق والغرام والهيام</p>
+    <p id="book-description">
+      العشق الأبدي ليس مجرد كلمة تُكتب، بل إحساس عميق يتحوّل إلى خواطر ومعانٍ.
+    </p>
 
-    <a class="button" href="./book.docx" download="book.docx">تحميل الكتاب بالعربية</a>
-
-    <p>Descargar el libro | Download the book</p>
+    <a
+      class="button"
+      id="download-button"
+      href="./assets/book.docx"
+      download="Madrasat-Al-Ishq-Al-Abadi.docx"
+    >تحميل الكتاب بالعربية</a>
   </section>
 
 </main>
@@ -124,5 +229,72 @@
   © 2026 Fakhreddine Hammadi
 </footer>
 
+<script>
+  const translations = {
+    ar: {
+      welcomeTitle: "مرحباً بكم في موقعي",
+      welcomeText: "فضاء شخصي للأفكار والإبداع والموسيقى والكتابة.",
+      motto: "العشق إلهام، والوفاء رسالة.",
+      socialTitle: "حساباتي على مواقع التواصل",
+      bookTitle: "كتابي الإلكتروني",
+      bookSubtitle: "فلسفة العشق والغرام والهيام",
+      bookDescription: "العشق الأبدي ليس مجرد كلمة تُكتب، بل إحساس عميق يتحوّل إلى خواطر ومعانٍ.",
+      download: "تحميل الكتاب بالعربية",
+      direction: "rtl"
+    },
+    es: {
+      welcomeTitle: "Bienvenidos a mi sitio web",
+      welcomeText: "Un espacio personal dedicado a las ideas, la creatividad, la música y la escritura.",
+      motto: "El amor inspira y la lealtad es un mensaje.",
+      socialTitle: "Mis redes sociales",
+      bookTitle: "Mi libro electrónico",
+      bookSubtitle: "Filosofía del amor y la pasión",
+      bookDescription: "El amor eterno no es solo una palabra, sino un sentimiento profundo que se transforma en pensamientos y significados.",
+      download: "Descargar el libro en árabe",
+      direction: "ltr"
+    },
+    en: {
+      welcomeTitle: "Welcome to my website",
+      welcomeText: "A personal space for ideas, creativity, music, and writing.",
+      motto: "Love inspires, and loyalty is a message.",
+      socialTitle: "My social media accounts",
+      bookTitle: "My e-book",
+      bookSubtitle: "The Philosophy of Love and Passion",
+      bookDescription: "Eternal love is more than a written word; it is a deep feeling expressed through thoughts and meaning.",
+      download: "Download the book in Arabic",
+      direction: "ltr"
+    },
+    fr: {
+      welcomeTitle: "Bienvenue sur mon site",
+      welcomeText: "Un espace personnel consacré aux idées, à la créativité, à la musique et à l’écriture.",
+      motto: "L’amour est une inspiration et la fidélité, un message.",
+      socialTitle: "Mes réseaux sociaux",
+      bookTitle: "Mon livre numérique",
+      bookSubtitle: "Philosophie de l’amour et de la passion",
+      bookDescription: "L’amour éternel n’est pas qu’un mot écrit, mais un sentiment profond qui devient pensées et significations.",
+      download: "Télécharger le livre en arabe",
+      direction: "ltr"
+    }
+  };
+
+  function setLanguage(language) {
+    const t = translations[language];
+
+    document.documentElement.lang = language;
+    document.documentElement.dir = t.direction;
+
+    document.getElementById("welcome-title").textContent = t.welcomeTitle;
+    document.getElementById("welcome-text").textContent = t.welcomeText;
+    document.getElementById("motto").textContent = t.motto;
+    document.getElementById("social-title").textContent = t.socialTitle;
+    document.getElementById("book-section-title").textContent = t.bookTitle;
+    document.getElementById("book-subtitle").textContent = t.bookSubtitle;
+    document.getElementById("book-description").textContent = t.bookDescription;
+    document.getElementById("download-button").textContent = t.download;
+  }
+</script>
+
 </body>
 </html>
+
+
