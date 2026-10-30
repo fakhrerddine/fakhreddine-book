@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fakhreddine Hammadi | Galerie Photos</title>
+  <meta name="description" content="Galerie de photos de Fakhreddine Hammadi. Découvrez ses photos et souvenirs.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://fakhrerddine.github.io/fakhreddine-book/gallery.html">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f5f8;
+      color: #222;
+    }
+    header {
+      background: #172b4d;
+      color: white;
+      text-align: center;
+      padding: 42px 16px;
+    }
+    header h1 { margin: 0 0 12px; }
+    header p { margin: 0; }
+    main { max-width: 1200px; margin: auto; padding: 25px 16px; }
+    #status { text-align: center; padding: 20px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    figure {
+      margin: 0;
+      background: white;
+      padding: 8px;
+      border-radius: 10px;
+      box-shadow: 0 2px 9px #00000012;
+    }
+    figure img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 7px;
+      display: block;
+    }
+    figcaption {
+      padding: 10px 4px 5px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fakhreddine Hammadi</h1>
+    <p>Galerie de photos personnelle</p>
+  </header>
+
+  <main>
+    <h2>Mes photos</h2>
+    <p id="status">Chargement des photos...</p>
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <footer>© Fakhreddine Hammadi</footer>
+
+  <script>
+    const gallery = document.getElementById("gallery");
+    const status = document.getElementById("status");
+
+    const folders = ["", "photos/photos"];
+    const imageExtensions = /\.(jpg|jpeg|png|gif|webp)$/i;
+
+    async function loadPhotos(folder) {
+      const api = "https://api.github.com/repos/fakhrerddine/fakhreddine-book/contents/"
+        + folder + "?ref=main";
+
+      const response = await fetch(api);
+      if (!response.ok) return [];
+
+      const files = await response.json();
+      return files.filter(file =>
+        file.type === "file" && imageExtensions.test(file.name)
+      );
+    }
+
+    async function showGallery() {
+      try {
+        let allPhotos = [];
+
+        for (const folder of folders) {
+          const photos = await loadPhotos(folder);
+          allPhotos = allPhotos.concat(photos);
+        }
+
+        const unique = [...new Map(
+          allPhotos.map(photo => [photo.path, photo])
+        ).values()];
+
+        if (unique.length === 0) {
+          status.textContent = "Aucune photo trouvée.";
+          return;
+        }
+
+        status.textContent = unique.length + " photos";
+
+        unique.forEach(photo => {
+          const figure = document.createElement("figure");
+          const img = document.createElement("img");
+          const caption = document.createElement("figcaption");
+
+          img.src = photo.download_url;
+          img.alt = "Photo de Fakhreddine Hammadi";
+          img.loading = "lazy";
+
+          caption.textContent = "Fakhreddine Hammadi";
+          figure.appendChild(img);
+          figure.appendChild(caption);
+          gallery.appendChild(figure);
+        });
+      } catch (error) {
+        status.textContent =
+          "Impossible de charger les photos. Veuillez réessayer plus tard.";
+      }
+    }
+
+    showGallery();
+  </script>
+</body>
+</html>
