@@ -1,4 +1,4 @@
-﻿
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -6,8 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>فخرالدين حمادي | Fakhreddine Hammadi</title>
-
-  <meta name="description" content="الموقع الشخصي لفخرالدين حمادي: الكتابة والموسيقى والإبداع وكتاب مدرسة العشق الأبدي.">
+  <meta name="description" content="الموقع الشخصي لفخرالدين حمادي: الكتابة والموسيقى والإبداع وكتاب مدرسة العشق الأبدي ومعرض الصور.">
+  <meta name="author" content="Fakhreddine Hammadi">
+  <meta name="theme-color" content="#06152e">
 
   <style>
     * {
@@ -20,15 +21,15 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #06152e, #12345a, #06152e);
-      color: #ffffff;
+      color: #fff;
       text-align: center;
-      min-height: 100vh;
     }
 
     header {
-      padding: 45px 15px 30px;
+      padding: 40px 15px 25px;
     }
 
     .profile {
@@ -37,7 +38,7 @@
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #f2cc70;
-      box-shadow: 0 0 25px rgba(242, 204, 112, 0.35);
+      box-shadow: 0 0 25px rgba(242, 204, 112, .35);
     }
 
     h1, h2 {
@@ -54,7 +55,7 @@
     }
 
     h3 {
-      color: #ffffff;
+      color: #fff;
       font-size: 22px;
     }
 
@@ -73,8 +74,8 @@
       padding: 25px 18px;
       border: 1px solid #b89548;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, .06);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
     }
 
     .links {
@@ -93,11 +94,11 @@
       padding: 12px 18px;
       border-radius: 8px;
       margin: 5px;
-      transition: background 0.2s, transform 0.2s;
+      transition: background .2s, transform .2s;
     }
 
     .button:hover {
-      background: #ffffff;
+      background: #fff;
       transform: translateY(-2px);
     }
 
@@ -106,7 +107,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 8px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     .language {
@@ -127,7 +128,7 @@
 
     footer {
       padding: 25px 15px;
-      color: #dddddd;
+      color: #ddd;
       font-size: 14px;
     }
 
@@ -155,12 +156,16 @@
 <body>
 
 <header>
-  <img class="profile" src="./assets/fakhreddine.jpg" alt="الصورة الشخصية لفخرالدين حمادي">
+  <img
+    class="profile"
+    src="./assets/fakhreddine.jpg"
+    alt="الصورة الشخصية لفخرالدين حمادي"
+  >
 
   <h1>فخرالدين حمادي</h1>
   <p>Fakhreddine Hammadi</p>
   <p>✦ العشق إلهام، والوفاء رسالة ✦</p>
-</header>
+
   <div class="languages" aria-label="اختيار اللغة">
     <button class="language" onclick="setLanguage('ar')">العربية</button>
     <button class="language" onclick="setLanguage('es')">Español</button>
@@ -177,6 +182,20 @@
     <p id="motto">العشق إلهام، والوفاء رسالة.</p>
   </section>
 
+  <!-- معرض الصور -->
+  <section>
+    <h2 id="gallery-title">معرض الصور</h2>
+    <p id="gallery-description">
+      اكتشفوا مجموعة من الصور والذكريات في معرضي الشخصي.
+    </p>
+    <a
+      class="button"
+      id="gallery-button"
+      href="./gallery.html"
+    >📸 مشاهدة معرض الصور</a>
+  </section>
+
+  <!-- حسابات التواصل الاجتماعي -->
   <section>
     <h2 id="social-title">حساباتي على مواقع التواصل</h2>
 
@@ -203,10 +222,12 @@
     </div>
   </section>
 
+  <!-- الكتاب الإلكتروني -->
   <section>
     <h2 id="book-section-title">كتابي الإلكتروني</h2>
     <h3>مدرسة العشق الأبدي</h3>
     <p id="book-subtitle">فلسفة العشق والغرام والهيام</p>
+
     <p id="book-description">
       العشق الأبدي ليس مجرد كلمة تُكتب، بل إحساس عميق يتحوّل إلى خواطر ومعانٍ.
     </p>
@@ -231,6 +252,9 @@
       welcomeTitle: "مرحباً بكم في موقعي",
       welcomeText: "فضاء شخصي للأفكار والإبداع والموسيقى والكتابة.",
       motto: "العشق إلهام، والوفاء رسالة.",
+      galleryTitle: "معرض الصور",
+      galleryDescription: "اكتشفوا مجموعة من الصور والذكريات في معرضي الشخصي.",
+      galleryButton: "📸 مشاهدة معرض الصور",
       socialTitle: "حساباتي على مواقع التواصل",
       bookTitle: "كتابي الإلكتروني",
       bookSubtitle: "فلسفة العشق والغرام والهيام",
@@ -238,10 +262,14 @@
       download: "تحميل الكتاب بالعربية",
       direction: "rtl"
     },
+
     es: {
       welcomeTitle: "Bienvenidos a mi sitio web",
       welcomeText: "Un espacio personal dedicado a las ideas, la creatividad, la música y la escritura.",
       motto: "El amor inspira y la lealtad es un mensaje.",
+      galleryTitle: "Galería de fotos",
+      galleryDescription: "Descubre una colección de fotos y recuerdos en mi galería personal.",
+      galleryButton: "📸 Ver galería de fotos",
       socialTitle: "Mis redes sociales",
       bookTitle: "Mi libro electrónico",
       bookSubtitle: "Filosofía del amor y la pasión",
@@ -249,10 +277,14 @@
       download: "Descargar el libro en árabe",
       direction: "ltr"
     },
+
     en: {
       welcomeTitle: "Welcome to my website",
       welcomeText: "A personal space for ideas, creativity, music, and writing.",
       motto: "Love inspires, and loyalty is a message.",
+      galleryTitle: "Photo Gallery",
+      galleryDescription: "Discover a collection of photos and memories in my personal gallery.",
+      galleryButton: "📸 View Photo Gallery",
       socialTitle: "My social media accounts",
       bookTitle: "My e-book",
       bookSubtitle: "The Philosophy of Love and Passion",
@@ -260,10 +292,14 @@
       download: "Download the book in Arabic",
       direction: "ltr"
     },
+
     fr: {
       welcomeTitle: "Bienvenue sur mon site",
       welcomeText: "Un espace personnel consacré aux idées, à la créativité, à la musique et à l’écriture.",
       motto: "L’amour est une inspiration et la fidélité, un message.",
+      galleryTitle: "Galerie de photos",
+      galleryDescription: "Découvrez une collection de photos et de souvenirs dans ma galerie personnelle.",
+      galleryButton: "📸 Voir la galerie de photos",
       socialTitle: "Mes réseaux sociaux",
       bookTitle: "Mon livre numérique",
       bookSubtitle: "Philosophie de l’amour et de la passion",
@@ -276,12 +312,17 @@
   function setLanguage(language) {
     const t = translations[language];
 
+    if (!t) return;
+
     document.documentElement.lang = language;
     document.documentElement.dir = t.direction;
 
     document.getElementById("welcome-title").textContent = t.welcomeTitle;
     document.getElementById("welcome-text").textContent = t.welcomeText;
     document.getElementById("motto").textContent = t.motto;
+    document.getElementById("gallery-title").textContent = t.galleryTitle;
+    document.getElementById("gallery-description").textContent = t.galleryDescription;
+    document.getElementById("gallery-button").textContent = t.galleryButton;
     document.getElementById("social-title").textContent = t.socialTitle;
     document.getElementById("book-section-title").textContent = t.bookTitle;
     document.getElementById("book-subtitle").textContent = t.bookSubtitle;
@@ -292,5 +333,3 @@
 
 </body>
 </html>
-
-
