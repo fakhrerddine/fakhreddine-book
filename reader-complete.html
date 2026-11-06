@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101a32">
+<title>مدرسة العشق الأبدي الروحي | فخرالدين حمادي</title>
+<style>
+:root{--navy:#101a32;--navy2:#1d2945;--gold:#d9b86c;--paper:#f5ecd9;--ink:#344052;--muted:#c9c2d0}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 0,#39425c 0,#1c2742 45%,#0d1428 100%);color:#f8f0df;font-family:Tahoma,"Noto Naskh Arabic",serif}
+header{text-align:center;padding:25px 14px 17px;border-bottom:1px solid #d9b86c66}
+.brand{font:12px Arial,sans-serif;letter-spacing:2px;color:#e5cb8e}
+h1{font-size:clamp(25px,4vw,40px);margin:9px 0;color:#f3d994;text-shadow:0 2px 5px #0008,0 0 20px #d9b86c55}
+.subtitle{color:#e3d1aa;font-size:15px}
+.toolbar{position:sticky;top:0;z-index:10;display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;padding:11px;background:#101a32ed;border-bottom:1px solid #d9b86c66;backdrop-filter:blur(10px)}
+button,.download,select{border:1px solid #d9b86c99;background:#303b59;color:#fff3dc;border-radius:9px;padding:9px 12px;font:inherit;font-size:13px;cursor:pointer}
+button:hover,.download:hover{background:#4a5572}
+button:disabled{opacity:.4;cursor:not-allowed}
+.download{text-decoration:none}
+select{background:#f7efdf;color:#27334b}
+#search{width:min(210px,52vw);padding:10px;border-radius:9px;border:1px solid #d9b86c;background:#fff9ed;color:#26334b;font:inherit}
+main{max-width:1500px;margin:auto;padding:14px 12px 32px}
+.status{text-align:center;color:#e4d4b1;min-height:25px;margin:9px}
+.stage{position:relative;border:1px solid #e5ca82aa;border-radius:20px;padding:clamp(8px,2vw,22px);background:radial-gradient(ellipse at 50% 40%,#6d5a51 0,#3c354c 40%,#171d34 100%);box-shadow:0 25px 85px #000a,inset 0 1px 0 #fff3,0 0 35px #d9b86c22;min-height:78vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.stage:before{content:"";position:absolute;inset:8px;border:1px solid #f0d28a55;border-radius:14px;pointer-events:none}
+#book{width:min(100%,1320px);height:min(82vh,900px);margin:auto;filter:drop-shadow(0 22px 30px #0009)}
+.stf__parent{margin:auto!important}
+.page{background:var(--paper);overflow:hidden;box-shadow:inset 0 0 22px #725b3028}
+.page canvas{display:block;width:100%;height:100%;object-fit:contain;background:var(--paper)}
+.reader-controls{display:flex;justify-content:center;align-items:center;gap:9px;flex-wrap:wrap;margin:15px auto;color:var(--muted)}
+#counter{min-width:110px;text-align:center;font-size:14px}
+.progress{height:5px;max-width:850px;margin:0 auto;background:#ffffff25;border-radius:8px;overflow:hidden}
+.progress>div{height:100%;width:0;background:linear-gradient(90deg,#997443,#f2d58b);transition:width .2s}
+.note{text-align:center;color:#d2c8d4;font-size:12px;line-height:1.8;margin:13px auto;max-width:900px}
+.tools-panel{display:none;margin:14px auto;padding:15px;max-width:950px;background:#202b46;border:1px solid #d4b46a66;border-radius:14px}
+.tools-panel.open{display:block}
+.tools-panel h2{color:var(--gold);margin:0 0 10px;font-size:19px}
+#toc{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:7px;max-height:280px;overflow:auto}
+#toc button{text-align:right}
+.error{color:#ffe4e4;background:#642f42;padding:12px;border-radius:10px;max-width:800px;margin:10px auto}
+body.day{background:linear-gradient(140deg,#eee4cf,#d9cba9);color:#30263b}
+body.day .toolbar{background:#f4ead7ed;border-color:#b99855}
+body.day .stage{background:radial-gradient(ellipse at 50% 40%,#d4c09b,#a99a89 60%,#80788a);border-color:#9b7b43}
+body.day .status,body.day .note,body.day .reader-controls{color:#40364a}
+body.day .tools-panel{background:#fff7e8;color:#30263b}
+@media(max-width:700px){.toolbar{position:static}.stage{min-height:70vh;padding:5px;border-radius:12px}#book{height:70vh;width:100%}.reader-controls button{padding:8px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand">FAKHREDDINE HAMMADI · DIGITAL BOOK</div>
+ <h1>مدرسة العشق الأبدي الروحي</h1>
+ <div class="subtitle">فلسفة العشق والغرام والهيام</div>
+</header>
+<nav class="toolbar" aria-label="أدوات القراءة">
+ <button id="prev" data-t="prev">◀ السابق</button>
+ <button id="next" data-t="next">التالي ▶</button>
+ <span id="counter">جارٍ التحضير…</span>
+ <button id="zoomOut" data-t="zoomOut">− تصغير</button>
+ <button id="zoomIn" data-t="zoomIn">＋ تكبير</button>
+ <input id="search" type="search" placeholder="ابحث في الكتاب…" aria-label="بحث">
+ <button id="searchBtn" data-t="search">بحث</button>
+ <button id="jumpBtn" data-t="jump">اذهب للصفحة</button>
+ <button id="tocBtn" data-t="toc">📚 الفهرس</button>
+ <button id="themeBtn" data-t="theme">الوضع الليلي</button>
+ <button id="fullBtn" data-t="full">ملء الشاشة</button>
+ <select id="language" aria-label="Language">
+  <option value="ar">العربية</option><option value="es">Español</option><option value="fr">Français</option><option value="en">English</option>
+ </select>
+ <a class="download" id="pdfDownload" data-t="pdf" href="./assets/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D9%82%20%D8%A7%D9%84%D8%A3%D8%A8%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D9%88%D8%AD%D9%8A%20-%20Copie_compressed.pdf" download>تحميل PDF</a>
+ <a class="download" id="wordDownload" data-t="word" href="./assets/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D9%82%20%D8%A7%D9%84%D8%A3%D8%A8%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D9%88%D8%AD%D9%8A%20-%20Copie_compressed.docx" download>تحميل Word</a>
+</nav>
+<main>
+ <div id="status" class="status">جارٍ تحميل النسخة الأصلية من الكتاب…</div>
+ <section id="tocPanel" class="tools-panel"><h2 data-t="tocTitle">فهرس الكتاب</h2><div id="toc">سيظهر الفهرس بعد تجهيز الصفحات…</div></section>
+ <section class="stage"><div id="book"></div></section>
+ <div class="reader-controls">
+  <button id="firstBtn" data-t="first">أول الكتاب</button><button id="prev2" data-t="previous">الصفحة السابقة</button>
+  <span id="counter2">—</span><button id="next2" data-t="following">الصفحة التالية</button><button id="lastBtn" data-t="last">آخر الكتاب</button>
+ </div>
+ <div class="progress"><div id="bar"></div></div>
+ <p class="note" data-t="note">هذه الواجهة مترجمة، أما محتوى ملف PDF فيبقى باللغة العربية كما في النسخة الأصلية. التقليب بالماوس أو اللمس متاح.</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+<script>
+"use strict";
+const PDF_URL="./assets/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9%20%D8%A7%D9%84%D8%B9%D8%B4%D9%82%20%D8%A7%D9%84%D8%A3%D8%A8%D8%AF%D9%8A%20%D8%A7%D9%84%D8%B1%D9%88%D8%AD%D9%8A%20-%20Copie_compressed.pdf";
+const $=id=>document.getElementById(id);
+const words={
+ ar:{prev:"◀ السابق",next:"التالي ▶",zoomOut:"− تصغير",zoomIn:"＋ تكبير",search:"بحث",jump:"اذهب للصفحة",toc:"📚 الفهرس",theme:"الوضع الليلي",full:"ملء الشاشة",pdf:"تحميل PDF",word:"تحميل Word",first:"أول الكتاب",previous:"الصفحة السابقة",following:"الصفحة التالية",last:"آخر الكتاب",tocTitle:"فهرس الكتاب",note:"هذه الواجهة مترجمة، أما محتوى ملف PDF فيبقى باللغة العربية كما في النسخة الأصلية. التقليب بالماوس أو اللمس متاح.",searchPlaceholder:"ابحث في الكتاب…",loading:"جارٍ تحميل النسخة الأصلية من الكتاب…",ready:"الكتاب جاهز للقراءة",found:"وجدت العبارة في الصفحة ",notFound:"لم أجد العبارة. جرّب كلمة أخرى.",pagePrompt:"أدخل رقم الصفحة:",themeDay:"الوضع النهاري",themeNight:"الوضع الليلي",page:"صفحة"},
+ es:{prev:"◀ Anterior",next:"Siguiente ▶",zoomOut:"− Alejar",zoomIn:"＋ Acercar",search:"Buscar",jump:"Ir a página",toc:"📚 Índice",theme:"Modo nocturno",full:"Pantalla completa",pdf:"Descargar PDF",word:"Descargar Word",first:"Inicio",previous:"Página anterior",following:"Página siguiente",last:"Final",tocTitle:"Índice del libro",note:"La interfaz está traducida; el contenido del PDF permanece en árabe, como en el original. Puede pasar páginas con el ratón o la pantalla táctil.",searchPlaceholder:"Buscar en el libro…",loading:"Cargando el libro original…",ready:"El libro está listo para leer",found:"Texto encontrado en la página ",notFound:"No se encontró el texto. Pruebe otra palabra.",pagePrompt:"Introduzca el número de página:",themeDay:"Modo claro",themeNight:"Modo oscuro",page:"Página"},
+ fr:{prev:"◀ Précédent",next:"Suivant ▶",zoomOut:"− Réduire",zoomIn:"＋ Agrandir",search:"Rechercher",jump:"Aller à la page",toc:"📚 Sommaire",theme:"Mode nuit",full:"Plein écran",pdf:"Télécharger PDF",word:"Télécharger Word",first:"Début",previous:"Page précédente",following:"Page suivante",last:"Fin",tocTitle:"Sommaire du livre",note:"L’interface est traduite, mais le contenu du PDF reste en arabe, comme dans l’original. Le feuilletage à la souris ou au toucher est disponible.",searchPlaceholder:"Rechercher dans le livre…",loading:"Chargement du livre original…",ready:"Le livre est prêt à être lu",found:"Texte trouvé à la page ",notFound:"Texte introuvable. Essayez un autre mot.",pagePrompt:"Saisissez le numéro de page :",themeDay:"Mode clair",themeNight:"Mode sombre",page:"Page"},
+ en:{prev:"◀ Previous",next:"Next ▶",zoomOut:"− Zoom out",zoomIn:"＋ Zoom in",search:"Search",jump:"Go to page",toc:"📚 Contents",theme:"Night mode",full:"Full screen",pdf:"Download PDF",word:"Download Word",first:"First page",previous:"Previous page",following:"Next page",last:"Last page",tocTitle:"Book contents",note:"The interface is translated, while the PDF content remains in Arabic as in the original edition. Mouse and touch page turning are supported.",searchPlaceholder:"Search the book…",loading:"Loading the original book…",ready:"The book is ready to read",found:"Text found on page ",notFound:"No match found. Try another word.",pagePrompt:"Enter page number:",themeDay:"Light mode",themeNight:"Dark mode",page:"Page"}
+};
+let pdf=null,flip=null,total=0,zoom=1,renderJobs=new Map(),textCache=new Map();
+function tr(key){return words[$("language").value]||words.ar}
+function status(message){$("status").textContent=message}
+function applyLanguage(){
+ const lang=$("language").value,t=tr();
+ document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-t]").forEach(el=>{const k=el.dataset.t;if(t[k])el.textContent=t[k]});
+ $("search").placeholder=t.searchPlaceholder;$("search").dir=lang==="ar"?"rtl":"ltr";
+ $("themeBtn").textContent=document.body.classList.contains("day")?t.themeNight:t.themeDay;
+}
+function update(){
+ if(!flip)return;
+ const n=flip.getCurrentPageIndex();
+ $("counter").textContent=(n+1)+" / "+total;
+ $("counter2").textContent=tr().page+" "+(n+1);
+ $("bar").style.width=((n+1)/total*100)+"%";
+ $("prev").disabled=$("prev2").disabled=n<=0;
+ $("next").disabled=$("next2").disabled=n>=total-1;
+ renderAround(n);
+}
+async function renderOne(pageNo,canvas){
+ if(renderJobs.has(pageNo))return renderJobs.get(pageNo);
+ const job=(async()=>{
+  const p=await pdf.getPage(pageNo);
+  const base=p.getViewport({scale:1});
+  const scale=Math.min(2.2,Math.max(1.15,1050/base.width))*zoom;
+  const viewport=p.getViewport({scale});
+  canvas.width=Math.ceil(viewport.width);canvas.height=Math.ceil(viewport.height);
+  const ctx=canvas.getContext("2d",{alpha:false});
+  await p.render({canvasContext:ctx,viewport}).promise;
+ })();
+ renderJobs.set(pageNo,job);
+ try{await job;}catch(e){renderJobs.delete(pageNo);throw e;}
+}
+async function renderAround(index){
+ if(!pdf)return;
+ const nodes=$("book").querySelectorAll(".page");
+ const first=Math.max(0,index-2),last=Math.min(nodes.length-1,index+3);
+ for(let i=first;i<=last;i++){
+  const canvas=nodes[i].querySelector("canvas");
+  if(canvas&&!canvas.dataset.done){
+   try{await renderOne(i+1,canvas);canvas.dataset.done="1";}
+   catch(e){console.error(e);status("تعذر رسم الصفحة "+(i+1));}
+  }
+ }
+}
+function move(delta){if(!flip)return;const n=flip.getCurrentPageIndex();if(delta>0&&n<total-1)flip.flipNext();if(delta<0&&n>0)flip.flipPrev();}
+$("prev").onclick=$("prev2").onclick=()=>move(-1);
+$("next").onclick=$("next2").onclick=()=>move(1);
+$("firstBtn").onclick=()=>flip&&flip.flip(0);
+$("lastBtn").onclick=()=>flip&&flip.flip(total-1);
+$("tocBtn").onclick=()=>$("tocPanel").classList.toggle("open");
+$("themeBtn").onclick=()=>{document.body.classList.toggle("day");applyLanguage()};
+$("fullBtn").onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};
+$("language").onchange=applyLanguage;
+$("zoomIn").onclick=()=>changeZoom(.12);
+$("zoomOut").onclick=()=>changeZoom(-.12);
+function changeZoom(amount){
+ zoom=Math.max(.8,Math.min(1.6,zoom+amount));
+ renderJobs.clear();
+ $("book").querySelectorAll("canvas").forEach(c=>{c.width=0;c.height=0;delete c.dataset.done});
+ renderAround(flip?flip.getCurrentPageIndex():0);
+}
+$("jumpBtn").onclick=()=>{
+ if(!pdf)return;
+ const n=Number(prompt(tr().pagePrompt));
+ if(Number.isInteger(n)&&n>=1&&n<=pdf.numPages)flip.flip(n-1);
+};
+async function pageText(n){
+ if(textCache.has(n))return textCache.get(n);
+ const p=await pdf.getPage(n),content=await p.getTextContent();
+ const s=content.items.map(x=>x.str).join(" ");
+ textCache.set(n,s);return s;
+}
+$("searchBtn").onclick=async()=>{
+ const q=$("search").value.trim();if(!q||!pdf)return;
+ status("…");
+ for(let n=1;n<=pdf.numPages;n++){
+  const text=await pageText(n);
+  if(text.toLocaleLowerCase().includes(q.toLocaleLowerCase())){
+   flip.flip(n-1);status(tr().found+n);return;
+  }
+ }
+ status(tr().notFound);
+};
+$("search").addEventListener("keydown",e=>{if(e.key==="Enter")$("searchBtn").click()});
+window.addEventListener("keydown",e=>{
+ if(/INPUT|TEXTAREA|SELECT/.test(e.target?.tagName||""))return;
+ if(e.key==="ArrowLeft"){e.preventDefault();move(document.documentElement.dir==="rtl"?1:-1)}
+ if(e.key==="ArrowRight"){e.preventDefault();move(document.documentElement.dir==="rtl"?-1:1)}
+ if(e.key==="Home"){e.preventDefault();flip&&flip.flip(0)}
+ if(e.key==="End"){e.preventDefault();flip&&flip.flip(total-1)}
+});
+(async()=>{
+ try{
+  if(!window.pdfjsLib)throw Error("PDF.js failed to load");
+  if(!window.St?.PageFlip)throw Error("Page-flip engine failed to load");
+  pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+  pdf=await pdfjsLib.getDocument({url:PDF_URL}).promise;
+  total=pdf.numPages;
+  const host=$("book"),fragment=document.createDocumentFragment();
+  for(let n=1;n<=total;n++){
+   const el=document.createElement("div");el.className="page";
+   if(n===1||n===total)el.classList.add("hard");
+   const canvas=document.createElement("canvas");canvas.setAttribute("aria-label","PDF page "+n);
+   el.appendChild(canvas);fragment.appendChild(el);
+  }
+  host.replaceChildren(fragment);
+  flip=new St.PageFlip(host,{
+   width:640,height:905,size:"stretch",minWidth:300,maxWidth:1320,
+   minHeight:420,maxHeight:1700,autoSize:true,showCover:true,
+   usePortrait:true,drawShadow:true,maxShadowOpacity:.35,
+   flippingTime:750,swipeDistance:25,clickEventForward:true,
+   useMouseEvents:true,mobileScrollSupport:false
+  });
+  flip.loadFromHTML(host.querySelectorAll(".page"));
+  flip.on("flip",update);
+  update();await renderAround(0);
+  status(tr().ready+" · "+pdf.numPages+" PDF pages.");
+  const toc=$("toc");toc.replaceChildren();
+  for(let n=1;n<=pdf.numPages;n++){
+   const text=await pageText(n);
+   const match=text.match(/(?:الفصل|الباب|القسم)\s*[：:ـ-]?\s*[\d٠-٩]+[^\n]{0,90}/);
+   if(match){
+    const b=document.createElement("button");b.type="button";
+    b.textContent=match[0].trim();b.onclick=()=>flip.flip(n-1);toc.appendChild(b);
+   }
+  }
+  if(!toc.children.length)toc.textContent="تعذر استخراج عناوين الفصول آلياً؛ يمكنك استعمال البحث أو الانتقال إلى رقم الصفحة.";
+ }catch(e){
+  console.error(e);
+  $("status").innerHTML='<div class="error">لم يكتمل تشغيل القارئ: '+String(e.message||e).replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]))+'. تأكد من وجود ملف PDF في مجلد assets وأنه تم تحميل الصفحة بالكامل.</div>';
+ }
+})();
+applyLanguage();
+</script>
+</body>
+</html>
